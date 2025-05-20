@@ -4,5 +4,11 @@
     "nome": "dhavi",
     "email": "teste@gmail.com",
     "senha": "teste"
+  },
+  {
+    "id": 2,
+    "nome": "dhavi rodrigues",
+    "email": "dhavi@gmail.com",
+    "senha": "dhavi"
   }
 ]
