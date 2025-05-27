@@ -90,3 +90,37 @@ def atualizar_perfil(usuario_logado):
     sleep(2)
     
     return usuario_logado
+
+def deletar_conta(usuario_logado):
+    print('\n--- Excluir Conta ---')
+    
+    senha = input(str("Digite sua senha para confirmar a exclusão da conta: ")).strip()
+    if senha != usuario_logado['senha']:
+        print('Senha incorreta. Exclusão de conta cancelada.')
+        sleep(2)
+        return False
+    
+    while True:
+        confirmacao = input(str("Tem certeza que deseja EXCLUIR PERMANENTEMENTE sua conta? (S/N): ")).strip().lower()
+        if confirmacao == 's':
+            break
+        elif confirmacao == 'n':
+            print('Exclusão de conta cancelada.')
+            sleep(2)
+            return False
+        else:
+            print('Resposta inválida. Por favor, digite "s" para sim ou "n" para não.')
+            sleep(1)
+
+    arquivo_usuario = uc.carregar_dados('usuarios.json')
+    
+    novo_arquivo_usuarios = []
+    for usuarios in arquivo_usuario:
+        if usuarios['id'] != usuario_logado['id']:
+            novo_arquivo_usuarios.append(usuarios)
+    
+    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios)
+    
+    print('\nSua conta foi excluída com sucesso. Você será deslogado.')
+    sleep(2)
+    return True

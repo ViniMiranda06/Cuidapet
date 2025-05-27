@@ -81,10 +81,14 @@ def cadastrar_usuario():
             break 
 
 #Cadastra o id do usuário
-    novo_id = len(usuarios)
+    maior_id = -1 # Começa com -1 para garantir que o primeiro ID seja 0 se a lista estiver vazia
+    for id in usuarios: # Percorre a lista para encontrar o maior ID
+        if id['id'] > maior_id:
+            maior_id = id['id'] # Quando um maior id da lista de usuários é encontrado atribuido a "id"
+    id=maior_id + 1 # Soma id +1 para evitar conflitos entre id iguais
 #Cria uma lista com as informações do usuário
     novo_usuario = {
-        'id': novo_id,
+        'id': id,
         'nome': nome,
         'email': email,
         'senha': senha
