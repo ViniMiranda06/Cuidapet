@@ -34,32 +34,35 @@ def cadastrar_usuario():
 
 #Cadastra o nome do usuário
     while True:
-        nome = input(str("Digite seu nome e sobrenome: "))
-        if nome == '':
-            print('Nome não pode estar vazio. Tente novamente.')    
-        elif nome.replace(' ', '').isalpha() == False:
+        nome = input(str("Digite seu nome e sobrenome: ")).strip() #Remove espaços no início e final do texto
+        if nome == '': ##Verifica se o nome está vazio
+            print('Nome não pode estar vazio. Tente novamente.') 
+        elif nome.replace(' ', '').isalpha() == False:  #Verifica se o nome possui apenas letras
             print('Nome deve conter apenas letras. Tente novamente.')
         else:
             break
 #Cadastra o Email do usuário
     while True:
-        email = input("Digite seu e-mail: ").strip().lower() 
+        email = input("Digite seu e-mail: ").strip().lower() #Remove espaços no início e final do texto e deixa o email inteiro em minúsculo
         
         email_existe = False
-        for usuario_existente in usuarios:
-            if usuario_existente['email'] == email:
-                email_existe = True
+        for usuario_existente in usuarios: #Verifica se o email já está cadastrado
+            if usuario_existente['email'] == email: #Procura o email no "usuario.json"
+                email_existe = True #Caso encontre retorna o valor True nessa variável
                 break
-        if email_existe:
-            print("O email já está cadastrado, peço que tente executar o login.")
-            return 
+        if email_existe: #Caso seja verdade, impedirá a sequência do cadastro
+            print('\n')
+            print("-- O email já está cadastrado, peço que tente executar o login.--")
+            print('\n')
+            return #Encerra a função de cadastrar usuário
         
         if not ('@gmail.com' in email or \
                 '@hotmail.com' in email or \
                 '@yahoo.com' in email or \
                 '@outlook.com' in email or \
                 '@ufrpe.br' in email or \
-                'ufpe' in email):
+                'ufpe' in email): # os parenteses servem para agrupar as condições ou seja, ela será avaliada como um bloco e será "True" caso não haja gmail, por exemplo, no email inserido pelo usuário
+                                  # caso não fossem agrupadas, nenhum email seria permitido, já que, caso o usuário digitasse @gmail.com seria negado por não ter o @hotmail.com obrigado o usuário a adicionar todos os emails para ser considerado válido
             print("Formato de e-mail inválido ou domínio não permitido.")
             continue 
         else:
