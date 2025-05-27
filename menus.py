@@ -1,6 +1,7 @@
 from time import sleep
 import uc
 import ac
+import artes
 import ep
 
 def menu_uc():
@@ -57,7 +58,7 @@ def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usu
         print(f"\n--- Bem-vindo(a) ao Menu Principal, {nome_usuario}!---")
         print("O que você gostaria de fazer?")
         print("[1] Visualisar os animais em processo de tratamento")
-        print("[2] Visualisar os animais disponíveis para adoção")
+        print("[2] Adotar um pet")
         print("[3] Editar Informações de usuário")
         print("[0] Sair da Conta")
 
@@ -74,6 +75,8 @@ def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usu
             continue # Continua o loop do menu
         elif escolha == '2':
             print("Você escolheu: Animais disponíveis para adoção.") # Imprime a lista dos animais em adoção
+            ac.lista_animais_adocao() #Imprime a lista dos animais em adoção
+
             sleep(2)
         elif escolha == '3':
             print("Você escolheu: Editar Informações de usuário.")#Joga pro menus_ep()
@@ -162,9 +165,11 @@ def menu_ep(usuario_logado):
         if opcao == '1':
             ep.ver_perfil(usuario_logado)
         elif opcao == '2':
-            atualizar_perfil()
+            ep.atualizar_perfil(usuario_logado)
         elif opcao == '3':
-            if deletar_conta():
-                break
+            if ep.deletar_conta(usuario_logado): #Se o usuario for deletado o menu inicial será aberto novamente.
+                artes.conjunto
+                menu_uc()
+                break 
         elif opcao == '4':
             break
