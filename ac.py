@@ -28,7 +28,7 @@ def cadastrar_animal():
     Nome:
     Espécie:
     Sexo:
-    Idade:(str) ex: 8 meses ou 2 anos
+    Idade: ex: 8 meses ou 2 anos
     Outras informações e caraterísticas"""
     print("--- Cadastro de animais ---")
 
@@ -90,10 +90,13 @@ def cadastrar_animal():
     # Não há loop while True nem validação de conteúdo. Aceita o que for digitado ou vazio.
 
 #Cadastra o id do animal
-    novo_id = len(animais)
+    maior_id = -1 # Começa com -1 para garantir que o primeiro ID seja 0 se a lista estiver vazia
+    for id in animais: # Percorre a lista para encontrar o maior ID
+        if id['id'] > maior_id:
+            maior_id = id['id']
 #Cria uma lista com as informações do animal
     novo_animal = {
-        'id': novo_id,
+        'id': id,
         'nome': nome,
         'sexo': sexo,
         'especie': especie,

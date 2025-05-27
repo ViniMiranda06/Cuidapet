@@ -28,6 +28,7 @@ def cadastrar_usuario():
     Nome:
     Email:
     Senha:"""
+    
     print("--- Cadastro de Usuário ---")
     usuarios = carregar_dados('usuarios.json')
     #Esse é o primeiro momento em que o arquivo .json é criado, no caso ele irá carregar um dicionários dentro de uma lista "usuarios.json", e caso não exista ele criará.
