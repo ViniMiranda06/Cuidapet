@@ -153,4 +153,4 @@ def lista_animais_adocao():
         if animal.get('informações'):
             print(f"Informações: {animal.get('informações', '')}")
         print("-" * 30)
-    sleep(3)
+    sleep(2)

@@ -3,6 +3,7 @@ import uc
 import ac
 import artes
 import ep
+import pedidos
 
 def menu_uc():
     """Insere um menu de escolha para o usuário, contendo:
@@ -74,9 +75,8 @@ def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usu
             input("Pressione Enter para continuar...") # Espera o usuário pressionar Enter
             continue # Continua o loop do menu
         elif escolha == '2':
-            print("Você escolheu: Animais disponíveis para adoção.") # Imprime a lista dos animais em adoção
             ac.lista_animais_adocao() #Imprime a lista dos animais em adoção
-            id_animal = input
+            pedidos.enviar_pedido_adocao(usuario_logado)
             sleep(2)
         elif escolha == '3':
             print("Você escolheu: Editar Informações de usuário.")#Joga pro menus_ep()

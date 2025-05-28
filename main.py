@@ -12,6 +12,8 @@ import uc
 #Importa o user crud
 import ac
 #Importa o animal crud
+import pedidos
+#Importa as funções do módulo pedidos
 
 
 artes.conjunto() #Chama a função conjunto do módulo artes, que imprime as artes do P.A.T.A.S.

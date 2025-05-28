@@ -23,62 +23,79 @@ def salvar_dados(arquivo, dados):
         #json é a biblioteca importada, .dump() é a função que vai jogar da primeira variável, dentro do "arquivo" de animais.json, indent=6 é apenas para deixar mais organizado na hora da escrita do arquivo
 
 def enviar_pedido_adocao(usuario_logado):
-    animais_adocao = ac.carregar_dados('animais_adocao.json') # Usa ac.carregar_dados
-
-    nome_animal = None
-    for animal in animais_adocao:
-        if animal.get('id') == id_animal:
-            nome_animal = animal.get('nome')
-            nome_animal
-    print("\n--- Enviar Pedido de Adoção ---") 
     while True:
-        confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (s/n): ")).strip().lower()
-        if confirmacao == 's':
-            break
-        elif confirmacao == 'n':
-            print("Pedido de adoção cancelado.")
-            sleep(2)
+        animais_adocao = ac.carregar_dados('animais_adocao.json') # Usa ac.carregar_dados
+        id_animal = input ("Informe o id que gostaria de adotar (Digite VOLTAR para ir ao menu principal): ")
+        if id_animal.upper() == "VOLTAR":
             return
+
+        if id_animal.isdigit() == False:
+            print("Insira apenas números")
+            continue
         else:
-            print("Resposta inválida. Digite 's' para sim ou 'n' para não.")
-            sleep(1)
+            id_animal = int(id_animal)
 
-    print("\n--- Escreva seu Pedido de Doação ---")
-    print("--------------------------------------------------")
-    print("Modelo Sugerido:")
-    print("--------------------------------------------------")
-    print("""Bom dia, gostaria de adotar um animal, seu id é XX,
-          para entrar em contato comigo use meu email, ou meu
-          telefone: (81) 9.1234-5678""")
+        id = id_animal
+        for animal_lista in animais_adocao:
+            if animal_lista.get('id') == id:
+                break
+            else:
+                print('Digite um id existente.')
+                print("\n")
+
+        nome_animal = None
+        for animal_lista in animais_adocao:
+            if animal_lista.get('nome') == nome_animal:
+                nome_animal = animal_lista('nome')
+        print("\n--- Enviar Pedido de Adoção ---") 
+        while True:
+            confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (s/n): ")).strip().lower()
+            if confirmacao == 's':
+                break
+            elif confirmacao == 'n':
+                print("Pedido de adoção cancelado.")
+                sleep(2)
+                return
+            else:
+                print("Resposta inválida. Digite 's' para sim ou 'n' para não.")
+                sleep(1)
+
+        print("\n--- Escreva seu Pedido de Doação ---")
+        print("--------------------------------------------------")
+        print("Modelo Sugerido:")
+        print("--------------------------------------------------")
+        print("""Bom dia, gostaria de adotar um animal, seu id é XX,
+            para entrar em contato comigo use meu email, ou meu
+            telefone: (81) 9.1234-5678""")
 
 
-    mensagem = input(str("Digite sua mensagem, siga o modelo se preferir: (apenas aperte ENTER quando digitar toda mensagem) ")).strip()
-    while not mensagem:
-        print("A mensagem não pode estar vazia. Por favor, digite seu pedido.")
-        mensagem = input(str("Sua mensagem: ")).strip()
+        mensagem = input(str("Digite sua mensagem, siga o modelo se preferir: (apenas aperte ENTER quando digitar toda mensagem) ")).strip()
+        while not mensagem:
+            print("A mensagem não pode estar vazia. Por favor, digite seu pedido.")
+            mensagem = input(str("Sua mensagem: ")).strip()
 
-    pedidos = carregar_dados('pedidos.json')
+        pedidos = carregar_dados('pedidos.json')
 
-    id_mensagem = 0
-    if pedidos:
-        maior_id_atual = -1 
-        for pedido_existente in pedidos:
-            if pedido_existente['id_mensagem'] > maior_id_atual:
-                maior_id_atual = pedido_existente['id_mensagem']
-        id_mensagem = maior_id_atual + 1
+        id_mensagem = 0
+        if pedidos:
+            maior_id_atual = -1 
+            for pedido_existente in pedidos:
+                if pedido_existente['id_mensagem'] > maior_id_atual:
+                    maior_id_atual = pedido_existente['id_mensagem']
+            id_mensagem = maior_id_atual + 1
 
-    novo_pedido = {
-        'id_mensagem': id_mensagem,
-        'nome_animal': nome_animal,
-        'id_animal_adotado': id_animal,
-        'nome_solicitante': usuario_logado['nome'],
-        'email_solicitante': usuario_logado['email'],
-        'mensagem_pedido': mensagem
-    }
+        novo_pedido = {
+            'id_mensagem': id_mensagem,
+            'nome_animal': nome_animal,
+            'id_animal_adotado': id_animal,
+            'nome_solicitante': usuario_logado['nome'],
+            'email_solicitante': usuario_logado['email'],
+            'mensagem_pedido': mensagem
+        }
 
-    pedidos.append(novo_pedido)
-    salvar_dados('pedidos.json', pedidos)
-    
-    print("\nPedido de adoção enviado com sucesso!")
-    print("Entraremos em contato em breve através do e-mail fornecido.")
-    sleep(3)
+        pedidos.append(novo_pedido)
+        salvar_dados('pedidos.json', pedidos)
+        
+        print("\nPedido de adoção enviado com sucesso!")
+        print("Entraremos em contato em breve através do e-mail fornecido.")
+        sleep(3)
