@@ -14,12 +14,7 @@ git clone https://github.com/seu-usuario/patas.git
 cd patas
 ```
 
-2. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
-
-3. Execute o programa:
+2. Execute o programa:
 ```bash
 python main.py
 ```
