@@ -55,9 +55,9 @@ main.py
 ## 🔐 Como acessar o menu administrativo:
 1. Faça login normalmente como qualquer usuário.
 
-2.No Menu Principal, digite 1703 como opção.
+2. No Menu Principal, digite 1703 como opção.
 
-3.Isso abrirá o Menu Administrativo, exclusivo para a equipe responsável.
+3. Isso abrirá o Menu Administrativo, exclusivo para a equipe responsável.
 
 ## 🐾 Gestão de Animais
 -Cadastro de novos animais
