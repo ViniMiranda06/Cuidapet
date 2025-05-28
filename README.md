@@ -16,7 +16,7 @@ cd patas
 
 2. Execute o programa:
 ```bash
-python main.py
+main.py
 ```
 
 ## 👤 Funcionalidades para Usuários Comuns
