@@ -50,6 +50,7 @@ main.py
 - Logout
 
 👑 Funcionalidades para Administradores
+
 ⚠️ Atenção: O acesso às funcionalidades administrativas é restrito e só pode ser feito por meio de um recurso secreto acessado após o login.
 
 ## 🔐 Como acessar o menu administrativo:
