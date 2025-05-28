@@ -132,22 +132,3 @@ def lista_animais_tratamento():
             print(f"Informações: {animal.get('informações')}")
         print("-" * 30)
     sleep(3)
-
-def listar_pedidos_adocao():
-    print("\n--- Lista de Pedidos de Adoção ---")
-    pedidos = carregar_dados('pedidos.json')
-
-    if not pedidos:
-        print("Não há pedidos de adoção registrados no momento.")
-        sleep(2)
-        return
-
-    for pedido in pedidos:
-        print("-" * 30)
-        print(f"ID Mensagem: {pedido.get('id_mensagem', 'N/A')}")
-        print(f"Animal: {pedido.get('nome_animal', 'N/A')} (ID: {pedido.get('id_animal_adotado', 'N/A')})")
-        print(f"Solicitante: {pedido.get('nome_solicitante', 'N/A')}")
-        print(f"E-mail: {pedido.get('email_solicitante', 'N/A')}")
-        print(f"Mensagem: {pedido.get('mensagem_pedido', 'N/A')}")
-        print("-" * 30)
-    sleep(3)

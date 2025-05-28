@@ -95,8 +95,8 @@ telefone: (81) 9.1234-5678""")
             'id_mensagem': id_mensagem,
             'nome_animal': nome_animal,
             'id_animal_adotado': id_animal,
-            'nome_solicitante': usuario_logado['nome'],
-            'email_solicitante': usuario_logado['email'],
+            'nome_usuario': usuario_logado['nome'],
+            'email_usuario': usuario_logado['email'],
             'mensagem_pedido': mensagem
         }
 
@@ -107,3 +107,23 @@ telefone: (81) 9.1234-5678""")
         print("Entraremos em contato em breve através do e-mail fornecido.")
         sleep(2)
         return
+
+def listar_pedidos_adocao():
+    print("\n--- Lista de Pedidos de Adoção ---")
+    pedidos = carregar_dados('pedidos.json')
+
+    if not pedidos:
+        print("Não há pedidos de adoção registrados no momento.")
+        sleep(2)
+        return
+
+    for pedido in pedidos:
+        print("-" * 30)
+        print(f"ID Mensagem: {pedido.get('id_mensagem', )}")
+        print(f"Animal: {pedido.get('nome_animal')}") 
+        print(f"ID: {pedido.get('id_animal_adotado')}")
+        print(f"Usuario: {pedido.get('nome_usuario')}")
+        print(f"E-mail: {pedido.get('email_usuario')}")
+        print(f"Mensagem: {pedido.get('mensagem_pedido')}")
+        print("-" * 30)
+    sleep(3)
