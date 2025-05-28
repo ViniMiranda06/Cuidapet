@@ -56,7 +56,7 @@ def enviar_pedido_adocao(usuario_logado):
 
         print("\n--- Enviar Pedido de Adoção ---") 
         while True:
-            confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (s/n): ")).strip().lower()
+            confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (S/N): ")).strip().upper()
             if confirmacao == 's':
                 break
             elif confirmacao == 'n':
@@ -64,17 +64,17 @@ def enviar_pedido_adocao(usuario_logado):
                 sleep(2)
                 return
             else:
-                print("Resposta inválida. Digite 's' para sim ou 'n' para não.")
+                print("Resposta inválida. Digite 'S' para sim ou 'N' para não.")
                 sleep(1)
-
+        sleep(1)
         print("\n--- Escreva seu Pedido de Adoção ---")
         print("--------------------------------------------------")
         print("Modelo Sugerido:")
         print("--------------------------------------------------")
         print("""Bom dia, gostaria de adotar um animal, seu id é XX,
-            para entrar em contato comigo use meu email, ou meu
-            telefone: (81) 9.1234-5678""")
-
+para entrar em contato comigo use meu email, ou meu
+telefone: (81) 9.1234-5678""")
+        sleep(2)
 
         mensagem = input(str("Digite sua mensagem, siga o modelo se preferir: (apenas aperte ENTER quando digitar toda mensagem) ")).strip()
         while not mensagem:

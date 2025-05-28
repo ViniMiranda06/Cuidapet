@@ -123,34 +123,31 @@ def lista_animais_tratamento():
 
     for animal in animais_tratamento: #Imprime uma lista com os animais em tratamento
         print("-" * 30)
-        print(f"ID: {animal.get('id', 'N/A')}")
-        print(f"Nome: {animal.get('nome', 'N/A')}")
-        print(f"Espécie: {animal.get('especie', 'N/A')}")
-        print(f"Sexo: {animal.get('sexo', 'N/A')}")
-        print(f"Idade: {animal.get('idade', 'N/A')}")
+        print(f"ID: {animal.get('id')}")
+        print(f"Nome: {animal.get('nome')}")
+        print(f"Espécie: {animal.get('especie')}")
+        print(f"Sexo: {animal.get('sexo')}")
+        print(f"Idade: {animal.get('idade')}")
         if animal.get('informações'):
-            print(f"Informações: {animal.get('informações', '')}")
+            print(f"Informações: {animal.get('informações')}")
         print("-" * 30)
     sleep(3)
 
-def lista_animais_adocao():
-    """Imprime os animais que estão disponíveis para adoção."""
-    print("\n--- Animais Disponíveis para Adoção ---") 
-    animais_adocao = carregar_dados('animais_adocao.json') # Carrega os dados do arquivo 'animais_adocao.json'
+def listar_pedidos_adocao():
+    print("\n--- Lista de Pedidos de Adoção ---")
+    pedidos = carregar_dados('pedidos.json')
 
-    if not animais_adocao: # Caso não haja animais disponíveis para adoção, ele irá imprimir a mensagem abaixo
-        print("Não há animais disponíveis para adoção no momento.")
+    if not pedidos:
+        print("Não há pedidos de adoção registrados no momento.")
         sleep(2)
         return
 
-    for animal in animais_adocao:  # Imprime uma lista com os animais disponíveis para adoção
+    for pedido in pedidos:
         print("-" * 30)
-        print(f"ID: {animal.get('id', 'N/A')}")
-        print(f"Nome: {animal.get('nome', 'N/A')}")
-        print(f"Espécie: {animal.get('especie', 'N/A')}")
-        print(f"Sexo: {animal.get('sexo', 'N/A')}")
-        print(f"Idade: {animal.get('idade', 'N/A')}")
-        if animal.get('informações'):
-            print(f"Informações: {animal.get('informações', '')}")
+        print(f"ID Mensagem: {pedido.get('id_mensagem', 'N/A')}")
+        print(f"Animal: {pedido.get('nome_animal', 'N/A')} (ID: {pedido.get('id_animal_adotado', 'N/A')})")
+        print(f"Solicitante: {pedido.get('nome_solicitante', 'N/A')}")
+        print(f"E-mail: {pedido.get('email_solicitante', 'N/A')}")
+        print(f"Mensagem: {pedido.get('mensagem_pedido', 'N/A')}")
         print("-" * 30)
-    sleep(2)
+    sleep(3)
