@@ -108,7 +108,7 @@ telefone: (81) 9.1234-5678""")
         sleep(2)
         return
 
-def listar_pedidos_adocao():
+def pedidos_adocao():
     print("\n--- Lista de Pedidos de Adoção ---")
     pedidos = carregar_dados('pedidos.json')
 
@@ -127,3 +127,47 @@ def listar_pedidos_adocao():
         print(f"Mensagem: {pedido.get('mensagem_pedido')}")
         print("-" * 30)
     sleep(3)
+
+def deletar_pedido():
+    print("\n--- Deletar Pedido de Adoção ---")
+    while True:
+        id_deletar = input("Insira o ID da mensagem do pedido que deseja deletar (Digite VOLTAR para o menu): ").strip().lower()
+        
+        if id_deletar == "voltar":
+            print("Operação de exclusão de pedido cancelada.")
+            sleep(1)
+            return
+        else:
+            id_deletar = int(id_deletar)
+
+        pedidos = carregar_dados('pedidos.json')
+        
+        nova_lista_pedidos = []
+        for pedido in pedidos:
+            if pedido.get('id_mensagem') == id_deletar:
+                pedido_encontrado = pedido
+        
+        if pedido_encontrado is None:
+            print(f"Não foi encontrado nenhum pedido com o ID {id_deletar}.")
+            sleep(1)
+            continue
+        
+        while True:
+            confirmacao_exclusao = input(str(f"Tem certeza que deseja deletar o pedido do animal '{pedido_encontrado.get('nome_animal')}' (ID Mensagem: {id_deletar})? (S/N): ")).strip().lower()
+            if confirmacao_exclusao == 's':
+                nova_lista_pedidos = []
+                for pedido in pedidos:
+                    if pedido.get('id_mensagem') != id_deletar:
+                        nova_lista_pedidos.append(pedido)
+                salvar_dados('pedidos.json', nova_lista_pedidos)
+                print(f"Pedido com ID {id_deletar} deletado com sucesso.")
+                sleep(2)
+                return
+            
+            elif confirmacao_exclusao == 'n':
+                print("Exclusão de pedido cancelada.")
+                sleep(1)
+                return
+            else:
+                print("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.")
+                sleep(1)

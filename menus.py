@@ -142,8 +142,9 @@ def menu_opcoes_administrativas():
             sleep(2)
             menuinfopet()
         elif escolha == '3':
-            print("Você escolheu: Ver pedidos de doação. (Funcionalidade em desenvolvimento)") 
+            print("Você escolheu: Ver pedidos de doação.") 
             sleep(2)
+            pedidos.pedidos_adocao
         elif escolha == '0':
             print("Voltando ao menu principal...") #Retorna ao menu PUC
             sleep(1)
