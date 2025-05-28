@@ -48,5 +48,9 @@ main.py
 (https://github.com/DhaviRodrigues)
 - Vinícius De Oliveira
 (https://github.com/ViniMiranda06)
+
+## ⚠️ Estado do projeto
+O projeto se encontra em estágio de desenvolvimento.
+
 ## 📝 Licença
 Este é um projeto acadêmico desenvolvido para fins educacionais.
