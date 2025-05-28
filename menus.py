@@ -120,7 +120,7 @@ def menuinfopet():
 def menu_opcoes_administrativas():
     """As opções administrativas não devem ser utilizadas por usuários, apenas pela
     orgazinação que está utilizando o P.A.T.A.S. como plaforma de apoio ao seu trabalho solidário.
-    No menu administrativo conterá as opções de
+    No menu administrativo conterá as opções de:
     [1] Cadastrar Novo Animal
     [2] Editar informações dos pets
     [3] Ver pedidos de doação

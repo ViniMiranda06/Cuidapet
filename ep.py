@@ -17,27 +17,14 @@ def ver_perfil(usuario_logado): #Considera como parâmetro o dicionário do usu�
 
 def atualizar_perfil(usuario_logado):
     """
-    Permite que o usuário logado atualize seu nome, e-mail e senha.
-
-    Valida se o novo nome contém apenas letras, verifica se o novo e-mail está disponível
-    e possui domínio permitido, e garante que a nova senha tenha no mínimo 8 caracteres.
-    Se nenhum campo for alterado, os dados permanecem os mesmos.
-
-    Atualiza o arquivo 'usuarios.json' com as novas informações.
-
-    Parâmetros:
-        usuario_logado (dict): Dicionário contendo os dados do usuário atualmente logado.
-
-    Retorna:
-        dict: Dicionário atualizado do usuário.
-    """
+    Permite que o usuário logado atualize seu nome, e-mail e senha."""
     print('\n--- Atualizar Perfil ---')
     
-    arquivo_usuario = uc.carregar_dados('usuarios.json')
+    arquivo_usuario = uc.carregar_dados('usuarios.json') #Carrega os a lista de usuarios
     
     print(f"\nNome atual: {usuario_logado['nome']}")
     while True:
-        novo_nome = input(str("Digite o novo nome (ou ENTER para manter): ")).strip()
+        novo_nome = input(str("Digite o novo nome (ou ENTER para manter): ")).strip() #Altera o nome do usuário
         if not novo_nome:
             break
         elif not novo_nome.replace(' ', '').isalpha():
@@ -48,7 +35,7 @@ def atualizar_perfil(usuario_logado):
     
     print(f"\nE-mail atual: {usuario_logado['email']}")
     while True:
-        novo_email = input(str("Digite o novo e-mail (ou ENTER para manter): ")).strip().lower()
+        novo_email = input(str("Digite o novo e-mail (ou ENTER para manter): ")).strip().lower() #Altera o email do usuário
         if not novo_email:
             break
         
@@ -77,7 +64,7 @@ def atualizar_perfil(usuario_logado):
     print('\n--- Atualizar Senha ---')
     print('Deixe em branco para manter a senha atual.')
     while True:
-        nova_senha = input(str("Digite a nova senha (mínimo 8 caracteres): ")).strip()
+        nova_senha = input(str("Digite a nova senha (mínimo 8 caracteres): ")).strip() #Altera a senha do usuário
         if not nova_senha:
             break
         
@@ -95,12 +82,12 @@ def atualizar_perfil(usuario_logado):
 
     novo_arquivo_usuarios = []
     for usuarios in arquivo_usuario:
-        if usuarios['id'] != usuario_logado['id']:
-            novo_arquivo_usuarios.append(usuarios)
+        if usuarios['id'] != usuario_logado['id']: #Exclui o usuario antigo
+            novo_arquivo_usuarios.append(usuarios) #Cria uma lista sem o usuario antigo
     
-    novo_arquivo_usuarios.append(usuario_logado)
+    novo_arquivo_usuarios.append(usuario_logado) #Adiciona o usuario novo
         
-    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios)
+    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios) #Salva os dados
     
     print('\nPerfil atualizado com sucesso!')
     sleep(2)
@@ -116,14 +103,14 @@ def deletar_conta(usuario_logado):
     """
     print('\n--- Excluir Conta ---')
     
-    senha = input(str("Digite sua senha para confirmar a exclusão da conta: ")).strip()
+    senha = input(str("Digite sua senha para confirmar a exclusão da conta: ")).strip() #Pede confirmação da senha
     if senha != usuario_logado['senha']:
         print('Senha incorreta. Exclusão de conta cancelada.')
         sleep(2)
         return False
     
     while True:
-        confirmacao = input(str("Tem certeza que deseja EXCLUIR PERMANENTEMENTE sua conta? (S/N): ")).strip().lower()
+        confirmacao = input(str("Tem certeza que deseja EXCLUIR PERMANENTEMENTE sua conta? (S/N): ")).strip().lower() #Confirmação de exclusão
         if confirmacao == 's':
             break
         elif confirmacao == 'n':
@@ -138,10 +125,10 @@ def deletar_conta(usuario_logado):
     
     novo_arquivo_usuarios = []
     for usuarios in arquivo_usuario:
-        if usuarios['id'] != usuario_logado['id']:
-            novo_arquivo_usuarios.append(usuarios)
+        if usuarios['id'] != usuario_logado['id']:#Exclui o usuario da lista
+            novo_arquivo_usuarios.append(usuarios) #Cria uma lista sem o usario logado
     
-    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios)
+    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios) #Salva os dados
     
     print('\nSua conta foi excluída com sucesso. Você será deslogado.')
     sleep(2)
