@@ -111,14 +111,8 @@ def deletar_conta(usuario_logado):
     """
     Exclui permanentemente a conta do usuário logado após confirmação da senha e consentimento.
 
-    Requer que a senha atual seja informada corretamente. Em seguida, solicita confirmação
+    Requer que a senha atual seja informada e em seguida, solicita confirmação
     do usuário para excluir a conta. Caso confirmado, remove o usuário do arquivo 'usuarios.json'.
-
-    Parâmetros:
-        usuario_logado (dict): Dicionário contendo os dados do usuário atualmente logado.
-
-    Retorna:
-        bool: True se a conta foi excluída com sucesso, False caso contrário.
     """
     print('\n--- Excluir Conta ---')
     
