@@ -56,7 +56,7 @@ def enviar_pedido_adocao(usuario_logado):
 
         print("\n--- Enviar Pedido de Adoção ---") 
         while True:
-            confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (S/N): ")).strip().upper()
+            confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (S/N): ")).strip().lower()
             if confirmacao == 's':
                 break
             elif confirmacao == 'n':
