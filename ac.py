@@ -96,7 +96,7 @@ def cadastrar_animal():
             maior_id = id['id']
 #Cria uma lista com as informações do animal
     novo_animal = {
-        'id': id,
+        'id': maior_id,
         'nome': nome,
         'sexo': sexo,
         'especie': especie,
@@ -173,7 +173,6 @@ def lista_animais_adocao():
         print(f"Mensagem: {pedido.get('mensagem_pedido', 'N/A')}")
         print("-" * 30)
     sleep(3)
-
 
 def editar_animal_adocao():
     print(f"\n--- Editar Animal para Adoção ---")
