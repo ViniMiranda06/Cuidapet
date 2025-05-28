@@ -104,10 +104,12 @@ def menuinfopet():
             print("Você escolheu editar informações dos animais em tratamento.")#joga pras opções de cadastrar animal ac.py
             sleep(1)
             ac.lista_animais_tratamento() # Imprime a lista dos animais em tratamento
+            ac.editar_animal_tratamento()
         elif escolha == '2':
             print("Você escolheu editar informações dos animais disponíveis para adoção.") #Edita as informações dos animais
             sleep(2)
             ac.lista_animais_adocao() # Imprime a lista dos animais disponíveis para adoção
+            ac.editar_animal_adocao()
         elif escolha == '0':
             print("Voltando ao menu de opções administrativas...") #Retorna ao menu opções administrativas
             break
