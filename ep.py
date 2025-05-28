@@ -1,3 +1,4 @@
+#importando 
 import uc
 import menus
 import ac
@@ -15,6 +16,21 @@ def ver_perfil(usuario_logado): #Considera como parâmetro o dicionário do usu�
     input("Pressione ENTER para voltar ao menu.")
 
 def atualizar_perfil(usuario_logado):
+    """
+    Permite que o usuário logado atualize seu nome, e-mail e senha.
+
+    Valida se o novo nome contém apenas letras, verifica se o novo e-mail está disponível
+    e possui domínio permitido, e garante que a nova senha tenha no mínimo 8 caracteres.
+    Se nenhum campo for alterado, os dados permanecem os mesmos.
+
+    Atualiza o arquivo 'usuarios.json' com as novas informações.
+
+    Parâmetros:
+        usuario_logado (dict): Dicionário contendo os dados do usuário atualmente logado.
+
+    Retorna:
+        dict: Dicionário atualizado do usuário.
+    """
     print('\n--- Atualizar Perfil ---')
     
     arquivo_usuario = uc.carregar_dados('usuarios.json')
@@ -92,6 +108,12 @@ def atualizar_perfil(usuario_logado):
     return usuario_logado
 
 def deletar_conta(usuario_logado):
+    """
+    Exclui permanentemente a conta do usuário logado após confirmação da senha e consentimento.
+
+    Requer que a senha atual seja informada e em seguida, solicita confirmação
+    do usuário para excluir a conta. Caso confirmado, remove o usuário do arquivo 'usuarios.json'.
+    """
     print('\n--- Excluir Conta ---')
     
     senha = input(str("Digite sua senha para confirmar a exclusão da conta: ")).strip()
