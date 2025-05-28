@@ -161,7 +161,7 @@ def menu_ep(usuario_logado):
         print("1. Ver perfil")
         print("2. Atualizar perfil")
         print("3. Excluir conta")
-        print("4. Voltar ao menu principal")
+        print("0. Voltar ao menu principal")
         
         opcao = input("\nOpção: ")
         
@@ -174,5 +174,5 @@ def menu_ep(usuario_logado):
                 artes.conjunto
                 menu_uc()
                 break 
-        elif opcao == '4':
+        elif opcao == '0':
             break
