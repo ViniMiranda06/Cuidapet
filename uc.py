@@ -97,7 +97,11 @@ def cadastrar_usuario():
 #Adiciona o usuário que foi cadastrado no "usuários json."
     usuarios.append(novo_usuario)
     salvar_dados('usuarios.json', usuarios) # Salva a lista atualizada
-    print("Usuário cadastrado com sucesso!")
+    print("\n")
+    print("--- Usuário cadastrado com sucesso! ---")
+    print('\n')
+    print("Agora que você já possui uma conta, tente fazer o login")
+    sleep(1)
     print('\n')
 
 def fazer_login():

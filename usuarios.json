@@ -16,5 +16,11 @@
         "nome": "jeferson",
         "email": "123@gmail.com",
         "senha": "12345678"
+    },
+    {
+        "id": 4,
+        "nome": "Dhavi Rodrigues",
+        "email": "1234@gmail.com",
+        "senha": "12345678"
     }
 ]
