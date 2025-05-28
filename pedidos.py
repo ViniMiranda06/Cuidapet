@@ -24,6 +24,7 @@ def salvar_dados(arquivo, dados):
         #json é a biblioteca importada, .dump() é a função que vai jogar da primeira variável, dentro do "arquivo" de animais.json, indent=6 é apenas para deixar mais organizado na hora da escrita do arquivo
 
 def enviar_pedido_adocao(usuario_logado):
+    """Permite que o usuário faça uma solitação de adoção de um pet, o pedido será enviado a equipe administrativa, que entrará em contato com quem fez o pedido"""
     animais_adocao = ac.carregar_dados('animais_adocao.json')
     while True:
         if not animais_adocao:
