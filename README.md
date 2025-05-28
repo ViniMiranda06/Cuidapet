@@ -5,7 +5,9 @@ O P.A.T.A.S. tem como intuito auxiliar projetos voluntários que atuam no resgat
 
 ## 🚀 Tecnologia Utilizada
 - Python 3.12.4
-- bibliotecas usadas: JSON (*Uso de Listas e Dicionários, Podendo assim listar tanto em ordem com as Listas como em pares com os Dicionários, salvos em JSON) e Time
+- Bibliotecas usadas:
+        JSON (*Uso de listas e dicionários, salvar e carregar os dados em .json)
+        Time (Uso da função sleep)
 - Estruturas utilizadas:
  *if (executa um bloco se uma condição for verdadeira.)
  *elif (executa outra condição se a anterior for falsa.)
@@ -30,21 +32,15 @@ main.py
 ## 👤 Funcionalidades para Usuários Comuns
 
 ### Visualização 
-"""
-    Menu principal para o usuário após o login.
-    Contém opções para animais em tratamento, adoção, e opções administrativas (secreta).
-    """
-- Listagem de animais disponíveis para adoção
+- Fazer um pedido de adoção:
+    Permite que o usuário faça uma solitação de adoção de um pet, o pedido será enviado a equipe administrativa, que entrará em contato com quem fez o pedido
+
 - Visualização de animais em tratamento
+    Permite que o funcionário visualise os animais em tratamento, posteriormente haverá um patreon para os animais onde o usuário será redirecionado para o patreon
+
 - Detalhes completos de cada animal
 
 ### Gerenciamento de Conta
-"""Insere um menu de escolha para o usuário, contendo:
-    [1] Cadastrar-se no P.A.T.A.S.
-    [2] Fazer Login
-    ...
-    contém gerenciamento de conta dentro do padrão CRUD! contendo edição de perfil, Exclusçao de conta e sair da conta
-    """
 - Edição de informações pessoais
 - Alteração de senha
 - Logout
@@ -54,7 +50,7 @@ main.py
 ⚠️ Atenção: O acesso às funcionalidades administrativas é restrito e só pode ser feito por meio de um recurso secreto acessado após o login.
 
 ## 🔐 Como acessar o menu administrativo:
-1. Faça login na sua conta.
+1. Faça login normalmente como qualquer usuário.
 
 2. No Menu Principal, digite 1703 como opção.
 
@@ -62,12 +58,13 @@ main.py
 
 ## 🐾 Gestão de Animais
 -Cadastro de novos animais
--Atualização de status (tratamento / adoção)
 -Edição de informações detalhadas dos pets
 -Registro de tratamentos e procedimentos realizados
 
-📄 Gestão de Adoções (
+📄 Gestão de Adoções
 -Visualização de todos os pedidos de adoção realizados
+    Após os pedidos serem enviados pelos usuários, o administrador poderá visualizá-los.
+
 -Aprovação ou rejeição das solicitações enviadas por usuários
 
 ## 👨‍💻 Desenvolvedores
