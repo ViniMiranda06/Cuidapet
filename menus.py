@@ -144,7 +144,7 @@ def menu_opcoes_administrativas():
             sleep(2)
             menuinfopet()
         elif escolha == '3':
-            print("Você escolheu: Ver pedidos de doação.") 
+            print("Você escolheu: Ver pedidos de adoação.") 
             sleep(2)
             pedidos.pedidos_adocao
         elif escolha == '0':
