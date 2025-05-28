@@ -2,6 +2,7 @@ import json
 import os
 from time import sleep
 import ac
+import pedidos
 
 def carregar_dados(arquivo):
     """Carrega o arquivo json dos animais"""
@@ -23,8 +24,13 @@ def salvar_dados(arquivo, dados):
         #json é a biblioteca importada, .dump() é a função que vai jogar da primeira variável, dentro do "arquivo" de animais.json, indent=6 é apenas para deixar mais organizado na hora da escrita do arquivo
 
 def enviar_pedido_adocao(usuario_logado):
+    animais_adocao = ac.carregar_dados('animais_adocao.json')
     while True:
-        animais_adocao = ac.carregar_dados('animais_adocao.json') # Usa ac.carregar_dados
+        if not animais_adocao:
+            print("Não há animais disponíveis para adoção no momento.")
+            sleep(2)
+            return
+
         id_animal = input ("Informe o id que gostaria de adotar (Digite VOLTAR para ir ao menu principal): ")
         if id_animal.upper() == "VOLTAR":
             return
@@ -35,18 +41,19 @@ def enviar_pedido_adocao(usuario_logado):
         else:
             id_animal = int(id_animal)
 
-        id = id_animal
+        animal_selecionado = None
         for animal_lista in animais_adocao:
-            if animal_lista.get('id') == id:
+            if animal_lista.get('id') == id_animal:
+                animal_selecionado = animal_lista
                 break
-            else:
-                print('Digite um id existente.')
-                print("\n")
 
-        nome_animal = None
-        for animal_lista in animais_adocao:
-            if animal_lista.get('nome') == nome_animal:
-                nome_animal = animal_lista('nome')
+        if animal_selecionado is None:
+            print(" O ID digitado não corresponde a nenhum animal disponível para adoção.")
+            sleep(2)
+            continue
+
+        nome_animal = animal_selecionado.get('nome') 
+
         print("\n--- Enviar Pedido de Adoção ---") 
         while True:
             confirmacao = input(str(f"Tem certeza que deseja fazer um pedido de adoção para o animal ID {id_animal}? (s/n): ")).strip().lower()
@@ -60,7 +67,7 @@ def enviar_pedido_adocao(usuario_logado):
                 print("Resposta inválida. Digite 's' para sim ou 'n' para não.")
                 sleep(1)
 
-        print("\n--- Escreva seu Pedido de Doação ---")
+        print("\n--- Escreva seu Pedido de Adoção ---")
         print("--------------------------------------------------")
         print("Modelo Sugerido:")
         print("--------------------------------------------------")
@@ -98,4 +105,5 @@ def enviar_pedido_adocao(usuario_logado):
         
         print("\nPedido de adoção enviado com sucesso!")
         print("Entraremos em contato em breve através do e-mail fornecido.")
-        sleep(3)
+        sleep(2)
+        return
