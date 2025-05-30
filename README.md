@@ -24,7 +24,7 @@ Disponíveis no seguinte link do Google Drive:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/patas.git
+git clone https://github.com/ViniMiranda06/patas.git
 cd patas
 ```
 
