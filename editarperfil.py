@@ -1,7 +1,7 @@
 #importando 
-import uc
+import usercrud
 import menus
-import ac
+import animalcrud
 from time import sleep
 
 def ver_perfil(usuario_logado): #Considera como parâmetro o dicionário do usuário logado
@@ -20,7 +20,7 @@ def atualizar_perfil(usuario_logado):
     Permite que o usuário logado atualize seu nome, e-mail e senha."""
     print('\n--- Atualizar Perfil ---')
     
-    arquivo_usuario = uc.carregar_dados('usuarios.json') #Carrega os a lista de usuarios
+    arquivo_usuario = usercrud.carregar_dados('usuarios.json') #Carrega os a lista de usuarios
     
     print(f"\nNome atual: {usuario_logado['nome']}")
     while True:
@@ -87,7 +87,7 @@ def atualizar_perfil(usuario_logado):
     
     novo_arquivo_usuarios.append(usuario_logado) #Adiciona o usuario novo
         
-    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios) #Salva os dados
+    usercrud.salvar_dados('usuarios.json', novo_arquivo_usuarios) #Salva os dados
     
     print('\nPerfil atualizado com sucesso!')
     sleep(2)
@@ -121,14 +121,14 @@ def deletar_conta(usuario_logado):
             print('Resposta inválida. Por favor, digite "s" para sim ou "n" para não.')
             sleep(1)
 
-    arquivo_usuario = uc.carregar_dados('usuarios.json')
+    arquivo_usuario = usercrud.carregar_dados('usuarios.json')
     
     novo_arquivo_usuarios = []
     for usuarios in arquivo_usuario:
         if usuarios['id'] != usuario_logado['id']:#Exclui o usuario da lista
             novo_arquivo_usuarios.append(usuarios) #Cria uma lista sem o usario logado
     
-    uc.salvar_dados('usuarios.json', novo_arquivo_usuarios) #Salva os dados
+    usercrud.salvar_dados('usuarios.json', novo_arquivo_usuarios) #Salva os dados
     
     print('\nSua conta foi excluída com sucesso. Você será deslogado.')
     sleep(2)

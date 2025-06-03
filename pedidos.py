@@ -1,7 +1,7 @@
 import json
 import os
 from time import sleep
-import ac
+import animalcrud
 import pedidos
 
 def carregar_dados(arquivo):
@@ -25,7 +25,7 @@ def salvar_dados(arquivo, dados):
 
 def enviar_pedido_adocao(usuario_logado):
     """Permite que o usuário faça uma solitação de adoção de um pet, o pedido será enviado a equipe administrativa, que entrará em contato com quem fez o pedido"""
-    animais_adocao = ac.carregar_dados('animais_adocao.json')
+    animais_adocao = animalcrud.carregar_dados('animais_adocao.json')
     while True:
         if not animais_adocao:
             print("Não há animais disponíveis para adoção no momento.")

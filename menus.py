@@ -1,11 +1,11 @@
 from time import sleep
-import uc
-import ac
+import usercrud
+import animalcrud
 import artes
-import ep
+import editarperfil
 import pedidos
 
-def menu_uc():
+def menu_user_crud():
     """Insere um menu de escolha para o usuário, contendo:
     [1] Cadastrar-se no P.A.T.A.S.
     [2] Fazer Login
@@ -20,9 +20,9 @@ def menu_uc():
         print("[3] Saber mais sobre o P.A.T.A.S.")
         escolha = input("Digite o número correspondente a sua escolha: ").strip()
         if escolha == '1':
-            uc.cadastrar_usuario() # Chama a funçao de cadastrar usuário
+            usercrud.cadastrar_usuario() # Chama a funçao de cadastrar usuário
         elif escolha == '2':
-            usuario_logado =  uc.fazer_login() # Irá atribuir um valor ao "usuario_logado", que seria o dicionário do usuario que fez login (usuario). | uc.fazer_login(), possui um retorno, o retorno de "usuario", um dicionário recebido caso o login seja bem sucedido.
+            usuario_logado =  usercrud.fazer_login() # Irá atribuir um valor ao "usuario_logado", que seria o dicionário do usuario que fez login (usuario). | uc.fazer_login(), possui um retorno, o retorno de "usuario", um dicionário recebido caso o login seja bem sucedido.
             if usuario_logado is not None: # Caso o login seja bem sucedido:
                 print('\n')
                 sleep(1)
@@ -49,7 +49,7 @@ dos cuidados prestados.
             print('\n')
             sleep(2)
 
-def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usuário como parâmetro
+def menu_pos_login(usuario_logado): # Chama a função menupuc com o dicionário do usuário como parâmetro
     """
     Menu principal para o usuário após o login.
     Contém opções para animais em tratamento, adoção, edição de perfil, sair da conta e opções administrativas (secreta).
@@ -70,18 +70,18 @@ def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usu
             print("Você escolheu: Animais em processo de tratamento.") #Imprime a lista dos animais em tramento
             sleep(1)
             print('\n')
-            ac.lista_animais_tratamento()
+            animalcrud.lista_animais_tratamento()
             print("---Fim da lista de animais em tratamento---")
             input("Pressione Enter para continuar...") # Espera o usuário pressionar Enter
             continue # Continua o loop do menu
         elif escolha == '2':
-            ac.lista_animais_adocao() #Imprime a lista dos animais em adoção
+            animalcrud.lista_animais_adocao() #Imprime a lista dos animais em adoção
             pedidos.enviar_pedido_adocao(usuario_logado)
             sleep(2)
         elif escolha == '3':
             print("Você escolheu: Editar Informações de usuário.")#Joga pro menus_ep()
             sleep(2)
-            menu_ep(usuario_logado) # Chama a função menu_ep com o dicionário do usuário logado como parâmetro
+            menu_editar_perfil(usuario_logado) # Chama a função menu_ep com o dicionário do usuário logado como parâmetro
         elif escolha == '1703': # Opção secreta para o menu administrativo
             sleep(1)
             menu_opcoes_administrativas() #imprime o menu administrativo
@@ -92,7 +92,7 @@ def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usu
             print("Opção inválida. Por favor, digite 0, 1, 2 ou 3.")#Tratamento de erro
             sleep(2)
 
-def menuinfopet():
+def menu_info_pet():
     """O menuinfo pet significa menu informações do pet, que se refere ao [2]
     do menu de opções administrativas"""
     while True:
@@ -103,13 +103,13 @@ def menuinfopet():
         if escolha == '1':
             print("Você escolheu editar informações dos animais em tratamento.")#joga pras opções de cadastrar animal ac.py
             sleep(1)
-            ac.lista_animais_tratamento() # Imprime a lista dos animais em tratamento
-            ac.editar_animal_tratamento()
+            animalcrud.lista_animais_tratamento() # Imprime a lista dos animais em tratamento
+            animalcrud.editar_animal_tratamento()
         elif escolha == '2':
             print("Você escolheu editar informações dos animais disponíveis para adoção.") #Edita as informações dos animais
             sleep(2)
-            ac.lista_animais_adocao() # Imprime a lista dos animais disponíveis para adoção
-            ac.editar_animal_adocao()
+            animalcrud.lista_animais_adocao() # Imprime a lista dos animais disponíveis para adoção
+            animalcrud.editar_animal_adocao()
         elif escolha == '0':
             print("Voltando ao menu de opções administrativas...") #Retorna ao menu opções administrativas
             break
@@ -138,11 +138,11 @@ def menu_opcoes_administrativas():
         if escolha == '1':
             print("Você escolheu: Cadastrar Novo Animal.") #joga pras opções de cadastrar animal ac.py
             sleep(1)
-            ac.cadastrar_animal()
+            animalcrud.cadastrar_animal()
         elif escolha == '2':
             print("Você escolheu: Editar informações dos pets.") #Edita as informações dos animais
             sleep(2)
-            menuinfopet()
+            menu_info_pet()
         elif escolha == '3':
             print("Você escolheu: Ver pedidos de adoação.") 
             sleep(2)
@@ -155,7 +155,7 @@ def menu_opcoes_administrativas():
             print("Opção inválida. Por favor, digite 0, 1, 2 ou 3.") #Tratamento de erro
             sleep(2)
 
-def menu_ep(usuario_logado):
+def menu_editar_perfil(usuario_logado):
     while True:
         print("\n=== MENU ===")
         print("1. Ver perfil")
@@ -166,13 +166,13 @@ def menu_ep(usuario_logado):
         opcao = input("\nOpção: ")
         
         if opcao == '1':
-            ep.ver_perfil(usuario_logado)
+            editarperfil.ver_perfil(usuario_logado)
         elif opcao == '2':
-            ep.atualizar_perfil(usuario_logado)
+            editarperfil.atualizar_perfil(usuario_logado)
         elif opcao == '3':
-            if ep.deletar_conta(usuario_logado): #Se o usuario for deletado o menu inicial será aberto novamente.
+            if editarperfil.deletar_conta(usuario_logado): #Se o usuario for deletado o menu inicial será aberto novamente.
                 artes.conjunto
-                menu_uc()
+                menu_user_crud()
                 break 
         elif opcao == '0':
             break
