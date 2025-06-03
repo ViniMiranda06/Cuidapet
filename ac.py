@@ -53,7 +53,7 @@ def cadastrar_animal():
         nome = input(str("Digite o nome ou apelido do pet: "))
         if nome == '':
             print('Nome não pode estar vazio. Tente novamente.')
-        elif nome.replace(' ', '').isalpha == False: #Permite apenas que espaços e letras sejam inseridos
+        elif nome.replace(' ', '').isalpha() == False: #Permite apenas que espaços e letras sejam inseridos
             print('Nome deve conter apenas letras e espaços. Tente novamente.')
         else:
             break

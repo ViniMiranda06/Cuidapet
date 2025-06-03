@@ -58,7 +58,7 @@ def menupuc(usuario_logado): # Chama a função menupuc com o dicionário do usu
     while True:
         print(f"\n--- Bem-vindo(a) ao Menu Principal, {nome_usuario}!---")
         print("O que você gostaria de fazer?")
-        print("[1] Visualisar os animais em processo de tratamento")
+        print("[1] Visualizar os animais em processo de tratamento")
         print("[2] Adotar um pet")
         print("[3] Editar Informações de usuário")
         print("[0] Sair da Conta")
