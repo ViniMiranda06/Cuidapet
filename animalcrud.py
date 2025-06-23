@@ -99,7 +99,7 @@ def cadastrar_animal():
         'sexo': sexo,
         'especie': especie,
         'idade': idade,
-        'informacões': info
+        'informacoes': info
     }
 #Adiciona o animal que foi cadastrado
     animais.append(novo_animal) #Adiciona o dicionário "novo_animal" a lista "animais/adocao/tratamento.json"
