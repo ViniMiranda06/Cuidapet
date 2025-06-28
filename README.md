@@ -1,7 +1,6 @@
-# P.A.T.A.S.
-Plataforma de Apoio ao Tratamento e Adoção Solidária
+# CuidaPet
 
-O P.A.T.A.S. tem como intuito auxiliar projetos voluntários que atuam no resgate, tratamento e adoção de animais. A proposta visa oferecer uma solução tecnológica acessível, funcional e organizada, capaz de centralizar informações importantes sobre animais acolhidos, seu estado de saúde, sua disponibilidade para adoção e o andamento dos cuidados prestados.
+O CuidaPet tem como intuito auxiliar projetos atuam no resgate, tratamento e adoção de animais. A proposta visa oferecer uma solução tecnológica acessível, funcional e organizada, capaz de centralizar informações importantes sobre animais acolhidos e assim otimizar o fluxo de gerenciamento dentro dessas organizações.
 
 ## 🧑‍💻 Fluxograma do Projeto
 Disponíveis no seguinte link do Google Drive:
@@ -9,6 +8,7 @@ Disponíveis no seguinte link do Google Drive:
 
 ## 🚀 Tecnologia Utilizada
 - Python 3.12.4
+- TKInter (Interface Gráfica)
 - Bibliotecas usadas:
         JSON (*Uso de listas e dicionários, salvar e carregar os dados em .json)
         Time (Uso da função sleep)
@@ -24,8 +24,8 @@ Disponíveis no seguinte link do Google Drive:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/ViniMiranda06/P-A-T-A-S-.git
-cd P-A-T-A-S-
+git clone https://github.com/ViniMiranda06/CuidaPet.git
+cd CuidaPet
 ```
 
 2. Execute o programa:
@@ -72,10 +72,10 @@ main.py
 -Aprovação ou rejeição das solicitações enviadas por usuários
 
 ## 👨‍💻 Desenvolvedores
-- Dhavi
-(https://github.com/DhaviRodrigues)
 - Vinícius De Oliveira
 (https://github.com/ViniMiranda06)
+- Igor
+(https://github.com/IgordevBR)
 
 ## ⚠️ Estado do projeto
 O projeto se encontra em estágio de desenvolvimento.
