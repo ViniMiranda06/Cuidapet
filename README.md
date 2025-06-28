@@ -5,8 +5,8 @@ O CuidaPet tem como intuito auxiliar projetos atuam no resgate, tratamento e ado
 
 ## 🧑‍💻 Fluxograma do Projeto
 Disponíveis no seguinte link do Google Drive:
-        https://drive.google.com/drive/folders/13-FR9frEe6PiDKTTEKpFKipaRtXku7qN?usp=drive_link
-
+        https://drive.google.com/drive/folders/1iSLQePa_2zy8PUJ-Ys6y1j3dXj4Qr47d
+        
 ## 🚀 Tecnologia Utilizada
 - Python 3.12.4
 - TKInter (Interface Gráfica)
