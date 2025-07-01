@@ -12,7 +12,7 @@ Disponíveis no seguinte link do Google Drive:
 - TKInter (Interface Gráfica)
 - Bibliotecas usadas:
         JSON (*Uso de listas e dicionários, salvar e carregar os dados em .json)
-        Time (Uso da função sleep)
+        Pillow (manipulação de imagens)
 - Estruturas utilizadas:
  *if (executa um bloco se uma condição for verdadeira.)
  *elif (executa outra condição se a anterior for falsa.)
